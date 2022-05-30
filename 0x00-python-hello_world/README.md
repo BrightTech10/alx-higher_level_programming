@@ -1,4 +1,4 @@
-#BASIC PYTHON PROGRAMMING
+# BASIC PYTHON PROGRAMMING
 
 ## This introduces the python programming language, covering concepts such as:
 - How to use the python interpreter
