@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-with open("zen.txt") as f:
+with open("test_file/zen.txt") as f:
     print(f.read())
