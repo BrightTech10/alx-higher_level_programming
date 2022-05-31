@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-print("The Zen of Python")
+with open("zen.txt") as f:
+    print (f.read())
