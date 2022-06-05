@@ -2,10 +2,8 @@
 if __name__ != "__main__":
     def replace_in_list(my_list, idx, element):
         size = len(my_list)
-        if idx < 0:
-            return my_list
-        elif idx > size:
+        if idx >= 0 and idx < size:
+            my_list[idx] = element
             return my_list
         else:
-            my_list[idx] = element
             return my_list
