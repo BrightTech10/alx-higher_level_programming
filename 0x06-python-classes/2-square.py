@@ -9,6 +9,12 @@ class Square:
 
     """
     def __init__(self, size=0):
+        """ To initialize object
+
+        Args:
+            size: size of object
+
+        """
         self.__size = size
         if isinstance(size, int) is False:
             raise TypeError("size must be an integer")
