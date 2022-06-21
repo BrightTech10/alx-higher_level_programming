@@ -1,18 +1,17 @@
 #!/usr/bin/python3
+""" Defines a square """
+
+
 class Square:
-    """ Defines a square
+    """ Creates square class """
 
-        Attribute:
-            size: private instance attribute
-            if size is not an integer, TypeError exception is raised
-            if size is less than 0, ValuError exception is raised
-
-    """
     def __init__(self, size=0):
-        """ To initialize object
+        """ Initializes object
 
         Args:
             size: size of object
+            if size is not an integer, TypeError exception is raised
+            if size is less than 0, ValuError exception is raised
 
         """
         self.__size = size
