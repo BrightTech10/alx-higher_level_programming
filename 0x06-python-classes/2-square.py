@@ -10,6 +10,8 @@ class Square:
 
         Args:
             size: size of object
+
+        Raises:
             if size is not an integer, TypeError exception is raised
             if size is less than 0, ValuError exception is raised
 
