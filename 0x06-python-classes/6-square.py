@@ -77,7 +77,6 @@ class Square:
         """ prints square with the character '#' in stdout """
         if self.__size == 0:
             print()
-            return
         else:
             if self.__position[1] > 0:
                 print()
