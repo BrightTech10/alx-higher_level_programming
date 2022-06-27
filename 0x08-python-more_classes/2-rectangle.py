@@ -13,6 +13,10 @@ class Rectangle:
         self.width = width
         self.height = height
 
+    def __str__(self) -> str:
+        """ Prints string representation of object """
+        print("Area: " + self.area + " - Perimeter: " + self.perimeter)
+
     @property
     def width(self):
         """ Returns width of rectangle object """
