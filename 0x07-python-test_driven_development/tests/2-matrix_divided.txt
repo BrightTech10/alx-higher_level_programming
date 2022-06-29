@@ -1,0 +1,89 @@
+Tests for module ``2-matrix_divided``
+=========================================
+
+This module defines a matrix function ``matrix(matrix, div)``
+
+Usage:
+=====
+
+::
+
+First import ``matrix_divided`` from module
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+``matrix`` divide a matrix by a divisor and returns a new matrix
+
+::
+
+Test for div(int) positive
+    >>> matrix = [ [1, 2, 3], [4, 5, 6] ]
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+::
+
+Test for div(int) negative
+    >>> matrix = [ [1, 2, 3], [4, 5, 6] ]
+    >>> matrix_divided(matrix, -3)
+    [[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+::
+
+Test for div(float) positive
+    >>> matrix = [ [1, 2.6, 3], [4, 5.45, 6] ]
+    >>> matrix_divided(matrix, 2.2)
+    [[0.45, 1.18, 1.36], [1.82, 2.48, 2.73]]
+
+::
+
+Test for div(string)
+    >>> matrix = [ [1, 2, 3], [4, 5, 6] ]
+    >>> matrix_divided(matrix, "string")
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+::
+
+Test for div(value of 0)
+    >>> matrix = [ [1, 2, 3], [4, 5, 6] ]
+    >>> matrix_divided(matrix, 0)
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+
+::
+
+Test for div(NoneType)
+    >>> matrix = [ [1, 2, 3], [4, 5, 6] ]
+    >>> matrix_divided(matrix, None)
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+::
+
+Test for matrix: list of list of integers
+    >>> matrix = [ ['a', 2, 3], [4, 5, 6] ]
+    >>> matrix_divided(matrix, 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+Test for matrix(string)
+    >>> matrix = "Hello"
+    >>> matrix_divided(matrix, 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+
+Test for matrix: size of each row
+    >>> matrix = [ [1, 2, 3], [4, 5, 6, 8] ]
+    >>> matrix_divided(matrix, 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: Each row of the matrix must have the same size
