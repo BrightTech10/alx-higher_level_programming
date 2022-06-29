@@ -99,3 +99,52 @@ Test for a(float) positive and b(int) positive
 Test for a(float) negative and b(int) positive
     >>> add_integer(-5.5, 6)
     1
+
+::
+
+Test for a(float) positive and b(float) positive
+    >>> add_integer(5.5, 6.2)
+    11
+
+::
+
+Test for a(float) negative and b(float) negative
+    >>> add_integer(-5.5, -6.2)
+    -11
+
+::
+
+Test for a(float max) and b(float max)
+    >>> import sys
+    >>> add_integer(sys.float_info.max, sys.float_info.max)
+    359538626972463141629054847463408713596141135051689993197834953606314521560057077521179117265533756343080917907028764928468642653778928365536935093407075033972099821153102564152490980180778657888151737016910267884609166473806445896331617118664246696549595652408289446337476354361838599762500808052368249716736
+
+::
+
+Test for a(float max)
+    >>> import sys
+    >>> add_integer(sys.float_info.max)
+    179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858466
+
+::
+
+Test for a(float min)
+    >>> import sys
+    >>> add_integer(sys.float_info.min)
+    98
+
+::
+
+Test for a(float min) and b(float min)
+    >>> import sys
+    >>> add_integer(sys.float_info.min, sys.float_info.min)
+    0
+
+::
+
+Test for a(float NaN)
+    >>> from cmath import nan
+    >>> add_integer(nan)
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
