@@ -1,0 +1,152 @@
+Tests for module ``100-matrix_mul``
+=================================
+
+This module defines function ``matrix_mul``
+
+Usage:
+======
+
+First import ``matrix_mul`` from module
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+``matrix_mul`` computes and returns the product of two matrices
+
+::
+
+Test for matrix a(int) and matrix b(int)
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+    [[7, 10], [15, 22]]
+
+::
+
+Test for matrix a(int) and matrix b(int)
+    >>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+    [[13, 16]]
+
+::
+
+Test for matrix a(int) negative and matrix b(int) positive
+    >>> matrix_mul([[1, -2], [3, 4]], [[1, 2], [3, -4]])
+    [[-5, 10], [15, -10]]
+
+::
+
+Test for matrices a and b all negative integers
+    >>> matrix_mul([[-1, -2], [-3, -4]], [[-1, -2], [-3, -4]])
+    [[7, 10], [15, 22]]
+
+::
+
+Test for matrix a(int) and matrix b(float)
+    >>> matrix_mul([[1, 2], [3, 4]], [[1, 2.8], [3, 4.3]])
+    [[7, 11.399999999999999], [15, 25.599999999999998]]
+
+::
+
+Test for matrices a and b, all floats
+    >>> matrix_mul([[1.9, 2.0], [3, 4.7]], [[1.1, 2.8], [3, 4.3]])
+    [[8.09, 13.919999999999998], [17.400000000000002, 28.61]]
+
+::
+
+Test for matrix a(empty) and matrix b(int)
+    >>> matrix_mul([], [1, 2, 3])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b must be a list of lists
+
+::
+
+Test for matrix a(int) and matrix b(empty)
+    >>> matrix_mul([1, 2, 3], [])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a must be a list of lists
+
+::
+
+Test for matrix a(empty) and matrix b(absent)
+    >>> matrix_mul([],)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+::
+
+Test for matrix a(int) matrix b(absent)
+    >>> matrix_mul([[1, 2], [1, 3]],)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+::
+
+Test for matrix (empty)
+    >>> matrix_mul()
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+::
+
+Test for matrix matrix a(empty) and matrix b(empty)
+    >>> matrix_mul([], [])
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty
+
+::
+
+Test for matrix a(int) and matrix b(absent)
+    >>> matrix_mul()
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+::
+
+Test for matrix a(containing string) and matrix b(int)
+    >>> matrix_mul([["string", 5], [1, 3]], [[1, 4], [7, 9]])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a should contain only integers or floats
+
+::
+
+Test for matrix a(int) and matrix b(containing string)
+    >>> matrix_mul([[1, 4], [7, 9]], [[1, 3], ["string", 5]])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_b should contain only integers or floats
+
+::
+
+Test for matrix a(containing string) and matrix b(containing string)
+    >>> matrix_mul([[1, "string"], [7, 9]], [[1, 3], ["string", 5]])
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a should contain only integers or floats
+
+::
+
+Test for matrix a(int) of different size and matrix b(int)
+    >>> matrix_mul([[1, 8, 0], [7, 9]], [[1, 3], [4, 5]])
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_a must be of the same size
+
+::
+
+Test for matrix a(int) and matrix b(int)
+    >>> matrix_mul([[1, 0], [7, 9]], [[1, 3, 0], [4, 5]])
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_b must be of the same size
+
+::
+
+Test for matrix a(int) and matrix b(int)
+    >>> matrix_mul([[1, 0, 6], [7, 9]], [[1, 3, 0], [4, 5]])
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_a must be of the same size
