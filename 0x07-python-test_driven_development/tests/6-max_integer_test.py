@@ -9,14 +9,11 @@ class TestMaxInteger(unittest.TestCase):
     def test_max_int(self):
         self.assertEqual(max_integer([1, 2, 4, 3]), 4)
         self.assertEqual(max_integer([3, 3, 3, 3]), 3)
+        self.assertEqual(max_integer([1.2, 4.6, 6, 7.9]), 7.9)
         self.assertEqual(max_integer([-1, -10, -100, -290]), -1)
-        self.assertEqual(max_integer([]), None)
+        self.assertIsNone(max_integer())
+        self.assertIsNone(max_integer([]))
         self.assertEqual(max_integer(["string"]), 'string')
-
-    def test_type(self):
-        self.assertRaises(TypeError, max_integer, [1, 2, '3', 4])
-        self.assertRaises(TypeError, max_integer, [1, 2, 4.5, 4])
-        self.assertRaises(TypeError, max_integer, None)
 
 if __name__ == "__main__":
     unittest.main()
