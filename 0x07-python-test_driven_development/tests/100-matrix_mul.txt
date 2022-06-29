@@ -178,7 +178,7 @@ Test for matrix a(int) and matrix b(int)
 ::
 
 Test for matrix a(int) and matrix b(int)
-    >>> matrix_mul([[1, 2], [3, 4], [3, 4]], [[1, 0], [4, 5]])
+    >>> matrix_mul([[1, 2], [3, 4], [3, 4]], [[1, 0, 7], [4, 5, 5]])
     Traceback (most recent call last):
         ...
     IndexError: list index out of range
