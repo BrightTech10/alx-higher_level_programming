@@ -3,7 +3,7 @@
 
 
 class MyList(list):
-    """ Inherits ``list`` """
+    """ Defines a print_sorted function"""
     def print_sorted(self):
         """
         Prints a list of integers in ascending order
