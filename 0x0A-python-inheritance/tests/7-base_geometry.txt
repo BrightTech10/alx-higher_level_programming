@@ -24,13 +24,11 @@ Test for area()
 ::
 
 Test for value(int) positive
-    >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", 57)
 
 ::
 
 Test for value(int) negative
-    >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", -57)
     Traceback (most recent call last):
         ...
@@ -39,7 +37,6 @@ Test for value(int) negative
 ::
 
 Test for value(zero)
-    >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", 0)
     Traceback (most recent call last):
         ...
@@ -48,7 +45,6 @@ Test for value(zero)
 ::
 
 Test for value(string)
-    >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
         ...
@@ -56,9 +52,48 @@ Test for value(string)
 
 ::
 
-Test for value(float) 
-    >>> bg = BaseGeometry()
+Test for value(float) positive
     >>> bg.integer_validator("name", 8.0)
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
+
+::
+
+Test for missing argument
+    >>> bg.integer_validator(-8.0)
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+::
+
+Test for missing argument
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+::
+
+Test for name(int) and value(int) negative
+    >>> bg.integer_validator(9, -10)
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+::
+
+Test for name(float) and value(int) negative
+    >>> bg.integer_validator(9.0, -10)
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for +: 'float' and 'str'
+
+::
+
+Test for name(NoneType) and value(int) negative
+    >>> bg.integer_validator(None, -10)
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
