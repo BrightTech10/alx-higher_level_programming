@@ -1,0 +1,65 @@
+Tests for module ``1-my-list``
+=============================
+
+This module defines the function ``print_sorted()``
+
+Usage:
+=====
+
+First import ``MyList`` from module
+    >>> MyList = __import__('1-my_list').MyList
+
+``print_sorted(...)`` prints a list of integers in ascending order
+
+::
+
+Test for list elements of type int(positive)
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+::
+
+Test for list elements of type int(negative)
+    >>> my_list = MyList()
+    >>> my_list.append(-1)
+    >>> my_list.append(-4)
+    >>> my_list.append(-2)
+    >>> my_list.append(-3)
+    >>> my_list.append(-5)
+    >>> my_list.print_sorted()
+    [-5, -4, -3, -2, -1]
+
+
+::
+
+Test for list elements of type int and float
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3.8)
+    >>> my_list.append(5)
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+        ...
+    TypeError: Elements of list must be of type int
+
+::
+
+Test for list elements of type int and string
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append("string")
+    >>> my_list.append(5)
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+        ...
+    TypeError: Elements of list must be of type int
