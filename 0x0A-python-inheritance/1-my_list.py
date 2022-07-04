@@ -22,4 +22,4 @@ class MyList(list):
         for item in new_list:
             if type(item) is not int:
                 raise TypeError("Elements of list must be of type int")
-        print(new_list) 
+        print(new_list)
