@@ -5,15 +5,12 @@ import json
 
 def save_to_json_file(my_obj, filename):
     """
-    Writes an Object to a text file, using a JSON representation
+    Writes an Object using a JSON representation
 
     Args:
-        my_obj: object to be written
+        my_obj: object to be represented in JSON
         filename: path to file
     """
-
-    json_obj = json.dumps(my_obj)  # serializing json
-
     # writing to @filename
     with open(filename, mode='w', encoding='utf-8') as file:
-        file.write(json_obj)
+        file.write(json.JSONEncoder().encode(my_obj))
