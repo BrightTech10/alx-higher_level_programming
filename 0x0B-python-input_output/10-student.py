@@ -27,10 +27,10 @@ class Student:
             attrs: a list of strings
         """
 
-        if type(attrs) is list and all(type(item) is str for item in attrs):
-            dic = dict()
-            for key, value in self.__dict__.items():
-                if key in attrs:
-                    dic[key] = value
-                    return dic
-        return self.__dict__
+        if attrs is None or not all(type(item) is str for item in attrs):
+            return self.__dict__
+        dic = dict()
+        for key, value in self.__dict__.items():
+            if key in attrs:
+                dic[key] = value
+                return dic
