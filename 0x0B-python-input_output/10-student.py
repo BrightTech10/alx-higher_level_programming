@@ -32,4 +32,5 @@ class Student:
                 if key in attrs:
                     dic[key] = value
                     return dic
-        return self.__dict__
+        else:
+            return self.__dict__
