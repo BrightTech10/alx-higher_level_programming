@@ -27,10 +27,10 @@ class Student:
             attrs: a list of strings
         """
 
-        if attrs is None or not all(type(item) is str for item in attrs):
+        if attrs is None or not all([type(item) is str for item in attrs]):
             return self.__dict__.copy()
         dic = dict()
         for key, value in self.__dict__.items():
             if key in attrs:
                 dic[key] = value
-                return dic
+        return dic
