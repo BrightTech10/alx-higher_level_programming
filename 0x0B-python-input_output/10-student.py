@@ -26,11 +26,11 @@ class Student:
         Args:
             attrs: a list of strings
         """
+
         if type(attrs) is list and all(type(item) is str for item in attrs):
             dic = dict()
             for key, value in self.__dict__.items():
                 if key in attrs:
                     dic[key] = value
                     return dic
-        else:
-            return self.__dict__
+        return self.__dict__
