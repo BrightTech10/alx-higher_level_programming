@@ -36,7 +36,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """
-        Writes the JSON string representation of list_objs to a file
+        Writes the JSON string representation of a list of objects to a file
 
         Args:
             list_objs: a list of instances
@@ -93,6 +93,40 @@ class Base:
             Otherwise - a list of instantiated classes.
         """
         filename = cls.__name__ + ".json"
+        try:
+            with open(filename, 'r', encoding='utf-8') as json_file:
+                file_objs = Base.from_json_string(json_file.read())
+                return [cls.create(**obj) for obj in file_objs]
+        except IOError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serializes a list of objects in JSON
+
+        Args:
+            list_objs: a list of instances
+        """
+        filename = cls.__name__ + ".csv"
+
+        with open(filename, "w", encoding="utf-8") as file:
+            if list_objs is None:
+                file.write("[]")
+            else:
+                list_objs_dict = [obj.to_dictionary() for obj in list_objs]
+                file.write(Base.to_json_string(list_objs_dict))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Return a list of classes instantiated from a file of JSON strings.
+        Reads from ``<cls.__name__>.csv``.
+
+        Returns:
+            If the file does not exist - an empty list.
+            Otherwise - a list of instantiated classes.
+        """
+        filename = cls.__name__ + ".csv"
         try:
             with open(filename, 'r', encoding='utf-8') as json_file:
                 file_objs = Base.from_json_string(json_file.read())

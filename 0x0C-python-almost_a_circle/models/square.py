@@ -13,8 +13,8 @@ class Square(Rectangle):
         Args:
             size: size of Square object
             with dimensions width == height
-            x:
-            y:
+            x: x co-ordinate for Square object
+            y: y co-ordinate for Square object
             id: identification number
         """
         if type(size) is not int:
