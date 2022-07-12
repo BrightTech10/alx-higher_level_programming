@@ -39,7 +39,7 @@ class Square(Rectangle):
         name and instance attributes
         """
         return f"[{self.__class__.__name__}] ({self.id})"\
-               f" {self.x}/{self.y} - {self.width}"
+               f" {self.x}/{self.y} - {self.size}"
 
     @property
     def size(self):
@@ -69,7 +69,7 @@ class Square(Rectangle):
                 if key == "id":
                     self.id = value
                 if key == "size":
-                    self.width = value
+                    self.size = value
                 elif key == "x":
                     self.x = value
                 elif key == "y":
@@ -81,22 +81,22 @@ class Square(Rectangle):
             if value is not None:
                 self.id = value[0]
                 if len(value) == 2:
-                    self.width = value[1]
+                    self.size = value[1]
                 if len(value) == 3:
-                    self.width = value[1]
+                    self.size = value[1]
                     self.x = value[2]
                 if len(value) == 4:
-                    self.width = value[1]
+                    self.size = value[1]
                     self.x = value[2]
                     self.y = value[3]
                 if len(value) >= 5:
-                    self.width = value[1]
+                    self.size = value[1]
                     self.x = value[2]
                     self.y = value[3]
 
-        if type(self.width) is not int:
+        if type(self.size) is not int:
             raise TypeError("size must be an integer")
-        elif self.width <= 0:
+        elif self.size <= 0:
             raise ValueError("size must be > 0")
 
         if type(self.x) is not int:
@@ -110,13 +110,13 @@ class Square(Rectangle):
             raise ValueError("y must be >= 0")
 
         return f"[{self.__class__.__name__}] ({self.id})"\
-               f" {self.x}/{self.y} - {self.width}"
+               f" {self.x}/{self.y} - {self.size}"
 
     def to_dictionary(self):
         """ Returns the dictionary representation of a Square """
         return {
             "id": self.id,
             "x": self.x,
-            "size": self.width,
+            "size": self.size,
             "y": self.y,
         }
