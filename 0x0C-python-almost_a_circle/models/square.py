@@ -65,20 +65,9 @@ class Square(Rectangle):
             args: non-keyworded variable-length arguments
             kwargs: keyworded variable-length argument
         """
-        if type(self.size) is not int:
-            raise TypeError("size must be an integer")
-        elif self.size <= 0:
-            raise ValueError("size must be > 0")
-
-        if type(self.x) is not int:
-            raise TypeError("x must be an integer")
-        elif self.x < 0:
-            raise ValueError("x must be >= 0")
-
-        if type(self.y) is not int:
-            raise TypeError("y must be an integer")
-        elif self.y < 0:
-            raise ValueError("y must be >= 0")
+        if len(args) == 0 or args is None:
+            if len(kwargs) == 0:
+                return
 
         if not args:
             for key, value in kwargs.items():
@@ -109,6 +98,21 @@ class Square(Rectangle):
                     self.size = value[1]
                     self.x = value[2]
                     self.y = value[3]
+
+        if type(self.size) is not int:
+            raise TypeError("size must be an integer")
+        elif self.size <= 0:
+            raise ValueError("size must be > 0")
+
+        if type(self.x) is not int:
+            raise TypeError("x must be an integer")
+        elif self.x < 0:
+            raise ValueError("x must be >= 0")
+
+        if type(self.y) is not int:
+            raise TypeError("y must be an integer")
+        elif self.y < 0:
+            raise ValueError("y must be >= 0")
 
         return f"[{self.__class__.__name__}] ({self.id})"\
                f" {self.x}/{self.y} - {self.size}"
