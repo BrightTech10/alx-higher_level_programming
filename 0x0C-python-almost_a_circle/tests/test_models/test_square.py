@@ -52,9 +52,6 @@ class TestSquare(unittest.TestCase):
         # kwargs(string)
         with self.assertRaises(TypeError):
             r1.update(x="2")
-        # kwargs(float)
-        with self.assertRaises(TypeError):
-            r1.update(id="20")
         # kwargs(zero)
         with self.assertRaises(ValueError):
             r1.update(size=0)
