@@ -17,6 +17,11 @@ class Square(Rectangle):
             y: y co-ordinate for Square object
             id: identification number
         """
+        if type(self.id) is not int:
+            raise TypeError("id must be an integer")
+        if self.id <= 0:
+            raise TypeError("id must be > 0")
+
         if type(size) is not int:
             raise TypeError("size must be an integer")
         elif size <= 0:
@@ -96,7 +101,7 @@ class Square(Rectangle):
 
         if type(self.id) is not int:
             raise TypeError("id must be an integer")
-        if self.id < 0:
+        if self.id <= 0:
             raise TypeError("id must be > 0")
 
         if type(self.width) is not int:
