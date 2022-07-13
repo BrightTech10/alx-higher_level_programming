@@ -18,9 +18,9 @@ class Square(Rectangle):
             id: identification number
         """
         if type(size) is not int:
-            raise TypeError("size must be an integer")
+            raise TypeError("width must be an integer")
         elif size <= 0:
-            raise ValueError("size must be > 0")
+            raise ValueError("width must be > 0")
 
         if type(x) is not int:
             raise TypeError("x must be an integer")
